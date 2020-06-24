@@ -1,0 +1,23 @@
+
+.carousel-inner img{
+    height: 60vh;
+}
+
+.navbar-brand img{
+    width: 100px;
+    height: 100px;
+    border-radius: 80%;
+}
+
+
+
+.name{
+    font-size: 2em;
+}
+
+.cat_form{
+    border: 1px solid darkblue;
+    border-radius: 10px;
+}
+
+

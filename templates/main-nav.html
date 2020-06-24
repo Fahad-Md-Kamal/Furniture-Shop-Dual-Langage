@@ -1,0 +1,40 @@
+{% load i18n %}
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary d-flex justify-content-between ">
+  <a class="navbar-brand" href="#"><img src="{% static 'media/logo.png'%}" alt=""></a>
+  <P class="name text-light d-lg-none" >{% trans "SHAHD FOR UPHOLSTERY" %}</P>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor">
+    <ul class="navbar-nav d-flex mr-sm-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">{% trans "Home" %} <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'products:list' %}">{% trans "Products" %} <span class="sr-only">(current)</span></a>
+      </li>
+        <li class="nav-item">
+            
+        </li>
+    </ul>
+    <P class="name text-light d-md-none d-sm-none d-lg-block mr-auto" >{% trans "SHAHD FOR UPHOLSTERY" %}</P>
+    <div>
+      <form class="form-inline my-2" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+        <input  name="next" type="hidden" value="{{ redirect_to }}">
+        <select class="form-control mr-sm-2" name="language">
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% get_language_info_list for LANGUAGES as languages %}
+            {% for language in languages %}
+                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                    {{ language.name_local }}
+                </option>
+            {% endfor %}
+        </select>
+        <button class="btn btn-outline-success my-2 my-sm-0">{% trans "SELECT" %}</button>
+      </form>
+    </div>
+  </div>
+</nav>
