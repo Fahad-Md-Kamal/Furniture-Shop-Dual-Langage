@@ -7,17 +7,7 @@ from PIL import Image
 def photo_path(instance, filename):
     basefilename, file_extension= os.path.splitext(filename)
     date = datetime.datetime.now()
-    return f'product_pics/{instance.prod_code}/{date}-{instance.prod_code}{file_extension}'
-
-# class Category(models.Model):
-#     """
-#     Manage Product Category
-#     """
-#     categ_name = models.CharField(max_length=30)
-#     timestamp = models.DateTimeField(auto_now_add=True)
-
-#     def __str__(self):
-#         return self.categ_name
+    return f'{instance.prod_code}/{date}-{instance.prod_code}{file_extension}'
 
 
 PRODUCT_CATEGORY = [
@@ -49,7 +39,7 @@ class Product(models.Model):
     def save(self, *args, **kwargs):
         super(Product, self).save(*args, **kwargs)
         img = Image.open(self.image.path)
-        if img.height > 600 or img.width > 800:
-            output_size = (600, 800)
+        if img.height > 300 or img.width > 400:
+            output_size = (300, 400)
             img.thumbnail(output_size)
             img.save(self.image.path)

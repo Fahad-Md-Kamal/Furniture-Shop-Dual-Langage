@@ -1,0 +1,21 @@
+{% extends './product_base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-10 col-md-6 offset-sm-1 offset-md-3">
+            <form class="my-5 carousal-form p-2" method="post" enctype="multipart/form-data">
+                <legend class="text-center" >Carousal Photo</legend>
+                {% csrf_token %}
+                <span class="frm-ctrl">{{form}}</span>
+                <button class="my-3 btn btn-primary form-control" type="submit">Upload</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
+
+
+{% block sidebar %}
+
+{% endblock sidebar %}

@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+#: .\product_app\models.py:53
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-24 14:08+0600\n"
+"POT-Creation-Date: 2020-06-25 02:01+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +19,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\env\Lib\site-packages\bootstrap4\components.py:17
+#: .\env\Lib\site-packages\bootstrap4\templates\bootstrap4\form_errors.html:3
+#: .\env\Lib\site-packages\bootstrap4\templates\bootstrap4\messages.html:4
+msgid "close"
+msgstr ""
 
 #: .\env\Lib\site-packages\django\contrib\messages\apps.py:7
 msgid "Messages"
@@ -1191,37 +1198,69 @@ msgstr ""
 msgid "Connect, get help, or contribute"
 msgstr ""
 
-#: .\product_app\models.py:24
+#: .\product_app\models.py:19
 msgid "Sofa"
 msgstr "كنبة"
 
-#: .\product_app\models.py:25
+#: .\product_app\models.py:20
 msgid "Sponge Sofa"
 msgstr "صوفا اسفنجية"
 
-#: .\product_app\models.py:26
+#: .\product_app\models.py:21
 msgid "Table"
 msgstr "الطاولة"
 
-#: .\product_app\models.py:27
+#: .\product_app\models.py:22
 msgid "Chair"
 msgstr "كرسي"
 
-#: .\product_app\models.py:28
+#: .\product_app\models.py:23
 msgid "Curtain"
 msgstr "ستارة"
 
-#: .\product_app\models.py:29
+#: .\product_app\models.py:24
 msgid "Back Rest"
 msgstr "عودة الراحة"
 
-#: .\product_app\models.py:30
+#: .\product_app\models.py:25
 msgid "Arm Rest"
 msgstr "بقية الذراع"
 
-#: .\product_app\models.py:31
+#: .\product_app\models.py:26
 msgid "Pillow"
 msgstr "مخدة"
+
+#: .\product_app\templates\product_app\home.html:34
+msgid "35 years of experiance"
+msgstr "٣٥ سنة خبرة"
+
+#: .\product_app\templates\product_app\home.html:36
+msgid "Quality over Quantity"
+msgstr "الجودة على الكمية"
+
+#: .\product_app\templates\product_app\home.html:38
+msgid "Customers Trust"
+msgstr "ثقة العملاء"
+
+#: .\product_app\templates\product_app\home.html:40
+msgid "Master"
+msgstr "رئيس"
+
+#: .\product_app\templates\product_app\home.html:40 .\templates\footer.html:6
+msgid "Md Kamal Hossain"
+msgstr "محمد كمال حسين"
+
+#: .\product_app\templates\product_app\home.html:41
+msgid "Mobile"
+msgstr "جوال"
+
+#: .\product_app\templates\product_app\home.html:41
+msgid "0566371754"
+msgstr "٠٥٦٦٣٧١٧٥٤"
+
+#: .\product_app\templates\product_app\home.html:43
+msgid "Address: Al Azizia, Al Madinah Al Manawarah, KSA"
+msgstr "العنوان: العزيزية ، المدينة المنورة ، المملكة العربية السعودية"
 
 #: .\product_app\templates\product_app\product_list.html:12
 msgid "Product Code"
@@ -1231,7 +1270,17 @@ msgstr "كود"
 msgid "Contact Us For Inquary: 0566371754"
 msgstr "اتصل بنا للاستفسار: ٠٥٦٦٣٧١٧٥٤"
 
-#: .\templates\main-nav.html:6
+#: .\product_app\templates\product_app\product_list.html:23
+msgid "Category"
+msgstr "الفئة"
+
+#: .\templates\footer.html:7
+#, fuzzy
+#| msgid "Contact Us For Inquary: 0566371754"
+msgid "Contact: 0566371754"
+msgstr "اتصل بنا للاستفسار: ٠٥٦٦٣٧١٧٥٤"
+
+#: .\templates\main-nav.html:6 .\templates\main-nav.html:22
 msgid "SHAHD FOR UPHOLSTERY"
 msgstr "شهد للتنجيد"
 
@@ -1243,7 +1292,7 @@ msgstr ""
 msgid "Products"
 msgstr "منتجات"
 
-#: .\templates\main-nav.html:37
+#: .\templates\main-nav.html:36
 msgid "SELECT"
 msgstr "اختار"
 

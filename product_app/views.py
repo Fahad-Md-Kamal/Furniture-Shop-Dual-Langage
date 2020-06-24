@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse
 from django.utils.translation import gettext as _
 
-from . import models
+from . import models, forms
 
 
 def home(request):

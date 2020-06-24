@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
 
 {% block main %}
     <div id="carouselIndicators" class="carousel slide my-2" data-ride="carousel">
@@ -9,13 +11,13 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="https://via.placeholder.com/600" class="d-block w-100" alt="...">
+          <img src="{% static 'media/carousal/crsl-1.jpg' %}" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="https://via.placeholder.com/600" class="d-block w-100" alt="...">
+          <img src="{% static 'media/carousal/crsl-2.jpg' %}" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="https://via.placeholder.com/600" class="d-block w-100" alt="...">
+          <img src="{% static 'media/carousal/crsl-3.jpg' %}" class="d-block w-100" alt="...">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
@@ -27,4 +29,22 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
+    
+    <div class="my-3 text-center">
+      <p class="text-uppercase display-3 text-warning">{% trans "35 years of experiance" %}</p>
+      <hr>
+      <p class="text-uppercase h1 text-info">{% trans "Quality over Quantity" %}</p>
+      <hr>
+      <p class="text-uppercase h1 text-success">{% trans "Customers Trust" %}</p>
+      <hr>
+      <p class="h4 text-secondary"><span>{% trans "Master" %} </span> : <span>{% trans "Md Kamal Hossain" %}</span></p>
+      <p class="h4 text-secondary"><span>{% trans "Mobile" %}</span> : <span>{% trans "0566371754" %}</span></p>
+      <hr>
+      <p class="h5 text-secondary">{% trans "Address: Al Azizia, Al Madinah Al Manawarah, KSA" %}</p>
+    </div>
+  <hr>
+    <div class="map row my-5">
+    <iframe class="col-10 offset-1" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d284.6070104519259!2d39.516024273147906!3d24.46393408159987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sbd!4v1593028416541!5m2!1sen!2sbd" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div>
+  <hr>
 {% endblock main %}
