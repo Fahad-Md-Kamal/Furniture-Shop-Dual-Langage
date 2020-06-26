@@ -1,6 +1,7 @@
 import os, random, datetime
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.urls import reverse
 from PIL import Image
 
 
@@ -28,7 +29,7 @@ class Product(models.Model):
     """
     prod_code = models.CharField(max_length=255, unique=True)
     category = models.IntegerField(choices=PRODUCT_CATEGORY, default=0)
-    unit_price = models.PositiveIntegerField()
+    unit_price = models.PositiveIntegerField(default=0)
     updated_on = models.DateTimeField(auto_now=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(default='default.png', upload_to = photo_path)
@@ -43,3 +44,9 @@ class Product(models.Model):
             output_size = (300, 400)
             img.thumbnail(output_size)
             img.save(self.image.path)
+
+    def get_absolute_url(self):
+        return reverse('products:detail', kwargs={'pk':self.pk})
+    
+    class Meta:
+        ordering = ['category']

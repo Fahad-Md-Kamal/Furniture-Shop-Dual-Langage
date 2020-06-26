@@ -1,0 +1,42 @@
+{% extends './product_base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block main %}
+
+<div class="row">
+    <div class="col-sm-10 col-md-8 col-lg-4 offset-sm-1 offset-md-2 offset-lg-4">
+        <div class="card my-3 border-success">
+            <h3 class="card-header bg-success text-center text-light">{{object.get_category_display}}</h3>
+            <img src="{{object.image.url}}" alt="Card image">
+            <hr>
+            <div class="card-body bg-secondary my-2">
+                <div class="row">
+                    <div class="col-6">Product Code:</div>
+                    <div class="col-6">{{object.prod_code}}</div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-6">Unit Price:</div>
+                    <div class="col-6">{{object.unit_price}}</div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-6">Price Updated:</div>
+                    <div class="col-6">{{object.updated_on | date}}</div>
+                </div>
+            </div>
+            <div class="card-footer bg-success text-light text-center ">
+                <p> {% trans "Contact Us For Inquary: 0566371754" %}</p>
+                {% if requst.user is is_staff %}
+                    <a class="btn btn-primary form-control" href="{% url 'products:update' object.id %}">Update</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main %}
+
+
+
+

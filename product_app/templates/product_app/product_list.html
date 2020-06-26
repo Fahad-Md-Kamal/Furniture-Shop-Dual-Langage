@@ -3,30 +3,57 @@
 {% load i18n %}
 
 {% block content %}
-    <div class="products_card row">
+<div class="row">
     <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3">
-        {% for product in products %}
-        <div class="card my-5 border-primary">
-            <img class="card-img-top" src="{{ product.image.url }}" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title d-flex justify-content-between"> <span>{{ product.get_category_display }}</span> <span>{% trans "Product Code" %} - {{ product.prod_code }}</span></h5>
-                <p class="card-text"> {% trans "Contact Us For Inquary: 0566371754" %}</p>
+        {% if object_list %}
+        {% for product in object_list %}
+        <a class='text-dark cardLink' href="{% url 'products:detail' product.pk %}">
+            <div class="card my-5 border-success">
+                <p class="card-header bg-success h4 text-light d-flex justify-content-between">
+                    <span>{{ product.get_category_display }}</span>
+                    <span>{% trans "Product Code" %} - {{ product.prod_code }}</span>
+                </p>
+                <img class="card-img-top my-2" src="{{ product.image.url }}" alt="Card image cap">
+                <div class="card-footer bg-success text-light text-center ">
+                    <p> {% trans "Click To view detail" %}</p>
+                </div>
             </div>
-        </div>
+        </a>
         {% endfor %}
-    </div></div>
+        {% else %}
+        <p class="display-1 text-center text-info mt-5">{% trans "No Items Found"%}</p>
+        {% endif %}
+    </div>
+</div>
+
+{% if searched != 1 %}
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+        <a href="?page=1">&laquo; {% trans "first"%}</a>
+        <a class="mx-2" href="?page={{ page_obj.previous_page_number }}">{% trans "previous"%}</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+        <a class="mx-2" href="?page={{ page_obj.next_page_number }}">{% trans "next"%}</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}">{% trans "last"%} &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+{% endif %}
 {% endblock content %}
 
 
 {% block sidebar %}
-    <div class="col-sm-10 col-md-8 col-lg-6 offset-sm-1 offset-md-2 offset-lg-3 cat_form mt-3">
-        <legend class="text-center"> {% trans "Category" %} </legend>
-        {% for val,cat in categories %}
-        <form> {% csrf_token %}
-            <button class="btn btn-primary form-control my-2" type='submit'>{{cat}}</button>
-        </form>
-        {% endfor %}
-    </div>
+<div class="col-sm-10 col-md-8 col-lg-6 offset-sm-1 offset-md-2 offset-lg-3 cat_form mt-3 my-sm-3">
+    <legend class="text-center"> {% trans "Category" %} </legend>
+    <a class="btn btn-primary form-control my-2" href="{% url 'products:list' %}">{% trans "All product"%}</a>
+    {% for val,cat in categories %}
+    <a href="{% url 'products:search' val %}" class="btn btn-primary form-control my-2" type='submit'>{{cat}}</a>
+    {% endfor %}
+</div>
 {% endblock sidebar %}
-
-
