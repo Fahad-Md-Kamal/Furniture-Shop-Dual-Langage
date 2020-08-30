@@ -9,7 +9,7 @@ class HomePageView(generic.TemplateView):
 
 class ProductListView(generic.ListView):
     template_name = 'product_app/product_list.html'
-    paginate_by = 2
+    paginate_by = 3
     model = models.Product
 
     def get_context_data(self, *, object_list=None, **kwargs):

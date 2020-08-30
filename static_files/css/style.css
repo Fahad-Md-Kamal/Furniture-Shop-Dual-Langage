@@ -35,3 +35,15 @@
 .loginForm input{
     width: 100%;
 }
+
+.detail-img{
+    height: 40vh;
+}
+
+.detail-card{
+    height: 80vh;
+}
+
+.prod{
+    border-right: 3px dotted grey;
+}
